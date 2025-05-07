@@ -54,7 +54,7 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(349, 298);
+            this.btnExportar.Location = new System.Drawing.Point(427, 298);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(67, 30);
             this.btnExportar.TabIndex = 2;
