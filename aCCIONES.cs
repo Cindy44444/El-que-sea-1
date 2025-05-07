@@ -12,7 +12,7 @@ namespace El_que_sea_1
     internal class aCCIONES
     {
         private List<Alumno> alumnoList = new List<Alumno>();
-   
+        //aqui iba lo de nombre y eso
         public List <Alumno> Mostrar()
         {
             return alumnoList;
