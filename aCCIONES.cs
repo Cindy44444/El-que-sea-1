@@ -11,13 +11,8 @@ namespace El_que_sea_1
 {
     internal class aCCIONES
     {
-        private List<Alumno> alumnoList = new List<Alumno>
-        {
-            new Alumno ("Cindy",20,"LADD",112816,DateTime.Today),
-            new Alumno ("Rebeca",20,"LADD",112869,DateTime.Today),
-            new Alumno ("Maya",19,"LADD",111111,DateTime.Today),
-            new Alumno ("angela",20,"LADD",123456, DateTime.Today)
-        };
+        private List<Alumno> alumnoList = new List<Alumno>();
+   
         public List <Alumno> Mostrar()
         {
             return alumnoList;
@@ -68,26 +63,40 @@ namespace El_que_sea_1
         {
             try
             {
-                var rutaEscritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                var rutaArchivo = Path.Combine(rutaEscritorio, "Alumnos.xlsx");
+                var desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var filePath = Path.Combine(desktopPath, "Alumnos.xlsx");
 
-                if (!File.Exists(rutaArchivo))
-                    return false;
-
-                using (var workbook = new XLWorkbook(rutaArchivo))
+                if (!File.Exists(filePath))
                 {
-                    var worksheet = workbook.Worksheet(1);
-                    var rows = worksheet.RangeUsed().RowsUsed().Skip(1); // Omitir encabezado
+                    return false;
+                }
+
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet("Alumnos");
+
+                    var rows = worksheet.RowsUsed().Skip(1); // Saltar los encabezados
+
+                    alumnoList.Clear(); // Limpiar la lista antes de importar nuevos datos
 
                     foreach (var row in rows)
                     {
-                        string nombre = row.Cell(1).GetString();
-                        int edad = row.Cell(2).GetValue<int>();
-                        string grupo = row.Cell(3).GetString();
-                        int matricula = row.Cell(4).GetValue<int>();
-                        DateTime fechaIngreso = row.Cell(5).GetDateTime();
+                        var nombre = row.Cell(1).Value.ToString();
 
-                        alumnoList.Add(new Alumno(nombre, edad, grupo, matricula, fechaIngreso));
+                        // Usar TryParse para evitar excepciones en la conversión
+                        int edad = 0;
+                        int.TryParse(row.Cell(2).Value.ToString(), out edad); // Intentar convertir a entero
+
+                        var carrera = row.Cell(3).Value.ToString();
+
+                        int matricula = 0;
+                        int.TryParse(row.Cell(4).Value.ToString(), out matricula); // Intentar convertir a entero
+
+                        DateTime fechaIngreso;
+                        DateTime.TryParse(row.Cell(5).Value.ToString(), out fechaIngreso); // Intentar convertir a DateTime
+
+                        // Agregar el Alumno solo si la conversión fue exitosa
+                        alumnoList.Add(new Alumno(nombre, edad, carrera, matricula, fechaIngreso));
                     }
                 }
 
@@ -99,4 +108,5 @@ namespace El_que_sea_1
             }
         }
     }
+    
 }

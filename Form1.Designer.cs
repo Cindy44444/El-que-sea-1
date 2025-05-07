@@ -40,7 +40,7 @@
             this.dgDATOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDATOS.Location = new System.Drawing.Point(68, 37);
             this.dgDATOS.Name = "dgDATOS";
-            this.dgDATOS.Size = new System.Drawing.Size(501, 203);
+            this.dgDATOS.Size = new System.Drawing.Size(631, 203);
             this.dgDATOS.TabIndex = 0;
             // 
             // btnMostrar
@@ -55,7 +55,7 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(290, 298);
+            this.btnExportar.Location = new System.Drawing.Point(360, 298);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(67, 30);
             this.btnExportar.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             // btnImportar
             // 
-            this.btnImportar.Location = new System.Drawing.Point(502, 298);
+            this.btnImportar.Location = new System.Drawing.Point(632, 298);
             this.btnImportar.Name = "btnImportar";
             this.btnImportar.Size = new System.Drawing.Size(67, 30);
             this.btnImportar.TabIndex = 3;
