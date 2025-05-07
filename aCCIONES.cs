@@ -63,7 +63,40 @@ namespace El_que_sea_1
                 return false;
             }
         }
+        
+        public bool ImportarArchivo()
+        {
+            try
+            {
+                var rutaEscritorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                var rutaArchivo = Path.Combine(rutaEscritorio, "Alumnos.xlsx");
 
+                if (!File.Exists(rutaArchivo))
+                    return false;
 
-}
+                using (var workbook = new XLWorkbook(rutaArchivo))
+                {
+                    var worksheet = workbook.Worksheet(1);
+                    var rows = worksheet.RangeUsed().RowsUsed().Skip(1); // Omitir encabezado
+
+                    foreach (var row in rows)
+                    {
+                        string nombre = row.Cell(1).GetString();
+                        int edad = row.Cell(2).GetValue<int>();
+                        string grupo = row.Cell(3).GetString();
+                        int matricula = row.Cell(4).GetValue<int>();
+                        DateTime fechaIngreso = row.Cell(5).GetDateTime();
+
+                        alumnoList.Add(new Alumno(nombre, edad, grupo, matricula, fechaIngreso));
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+    }
 }

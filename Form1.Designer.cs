@@ -31,6 +31,7 @@
             this.dgDATOS = new System.Windows.Forms.DataGridView();
             this.btnMostrar = new System.Windows.Forms.Button();
             this.btnExportar = new System.Windows.Forms.Button();
+            this.btnImportar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgDATOS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(201, 298);
+            this.btnMostrar.Location = new System.Drawing.Point(68, 298);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(67, 30);
             this.btnMostrar.TabIndex = 1;
@@ -54,7 +55,7 @@
             // 
             // btnExportar
             // 
-            this.btnExportar.Location = new System.Drawing.Point(427, 298);
+            this.btnExportar.Location = new System.Drawing.Point(290, 298);
             this.btnExportar.Name = "btnExportar";
             this.btnExportar.Size = new System.Drawing.Size(67, 30);
             this.btnExportar.TabIndex = 2;
@@ -62,11 +63,22 @@
             this.btnExportar.UseVisualStyleBackColor = true;
             this.btnExportar.Click += new System.EventHandler(this.btnExportar_Click);
             // 
+            // btnImportar
+            // 
+            this.btnImportar.Location = new System.Drawing.Point(502, 298);
+            this.btnImportar.Name = "btnImportar";
+            this.btnImportar.Size = new System.Drawing.Size(67, 30);
+            this.btnImportar.TabIndex = 3;
+            this.btnImportar.Text = "Importar";
+            this.btnImportar.UseVisualStyleBackColor = true;
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnImportar);
             this.Controls.Add(this.btnExportar);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.dgDATOS);
@@ -83,6 +95,7 @@
         private System.Windows.Forms.DataGridView dgDATOS;
         private System.Windows.Forms.Button btnMostrar;
         private System.Windows.Forms.Button btnExportar;
+        private System.Windows.Forms.Button btnImportar;
     }
 }
 

@@ -34,5 +34,17 @@ namespace El_que_sea_1
                 MessageBox.Show("Fallo al exportado...");
             }
         }
+
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            if (acc.ImportarArchivo())
+            {
+                MessageBox.Show("Importando...");
+            }
+            else
+            {
+                MessageBox.Show("Error...");
+            }
+        }
     }
 }
