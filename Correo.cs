@@ -9,7 +9,7 @@ namespace El_que_sea_1
 {
     internal class Correo
     {
-        public void EnviarCorreo(string error)
+        public void EnviarCorreo(string error) 
         {
             try
             {

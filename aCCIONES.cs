@@ -13,9 +13,19 @@ namespace El_que_sea_1
     {
         private List<Alumno> alumnoList = new List<Alumno>();
         //aqui iba lo de nombre y eso
+        Correo correo = new Correo();
         public List <Alumno> Mostrar()
         {
-            return alumnoList;
+            try
+            {
+                return alumnoList;
+            }
+            catch (Exception ex)
+            {
+                correo.EnviarCorreo(ex.ToString());
+                throw;
+            }
+            
         }
        
 
@@ -53,8 +63,9 @@ namespace El_que_sea_1
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                correo.EnviarCorreo(ex.ToString());
                 return false;
             }
         }
@@ -102,8 +113,9 @@ namespace El_que_sea_1
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                correo.EnviarCorreo(ex.ToString());
                 return false;
             }
         }
