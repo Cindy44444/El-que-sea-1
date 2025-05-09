@@ -41,7 +41,7 @@ namespace El_que_sea_1
                     var worksheet = workbook.Worksheets.Add("Alumnos");
 
                     // Encabezados
-                    worksheet.Cell(1, 1).Value = "Nombre";
+                    worksheet.Cell(1, 0).Value = "Nombre";
                     worksheet.Cell(1, 2).Value = "Edad";
                     worksheet.Cell(1, 3).Value = "Carrera";
                     worksheet.Cell(1, 4).Value = "Matricula";
